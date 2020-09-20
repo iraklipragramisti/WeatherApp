@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:id="@+id/mainLayout"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:weightSum="100"
+        >
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="85"
+            android:background="@drawable/round_searchview"
+            android:iconifiedByDefault="false"
+            android:queryHint="Enter City"
+            android:queryBackground="@android:color/transparent"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            />
+
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@drawable/home"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/fahrenheit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="37sp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:textColor="@android:color/white"
+        android:text="F°"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/cityName"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:text=""
+        android:lines="1"
+        android:gravity="center"
+        android:textSize="23dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/currentWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/description"
+        android:layout_marginTop="35dp"
+      />
+
+    <RadioGroup
+        android:id="@+id/toggle"
+        android:checkedButton="@+id/hourly"
+        android:layout_width="240dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/outline"
+        android:layout_alignTop="@+id/currentWeather"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/hourly"
+            android:background="@drawable/toggle_background"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Hourly"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <RadioButton
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/daily"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_background"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Daily"
+            android:textColor="@android:color/white" />
+    </RadioGroup>
+
+
+
+    <LinearLayout
+        android:id="@+id/hourlyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/toggle"
+        android:layout_marginTop="45dp"
+        android:visibility="visible"
+        android:weightSum="100"
+        >
+
+        <LinearLayout
+            android:id="@+id/hourlyOne"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourOne"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                />
+
+            <ImageView
+                android:id="@+id/hourIconOne"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+
+                />
+
+            <View
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourOneTemp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textSize="28sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hourlyTwo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourTwo"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                />
+
+            <ImageView
+                android:id="@+id/hourIconTwo"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+
+                />
+
+            <View
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourTwoTemp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textSize="28sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hourlyThree"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourThree"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                />
+
+            <ImageView
+                android:id="@+id/hourIconThree"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+
+                />
+
+            <View
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourThreeTemp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textSize="28sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hourlyFour"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourFour"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                />
+
+            <ImageView
+                android:id="@+id/hourIconFour"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+
+                />
+
+            <View
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourFourTemp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textSize="28sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hourlyFive"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourFive"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                />
+
+            <ImageView
+                android:id="@+id/hourIconFive"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+
+                />
+
+            <View
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/hourFiveTemp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:textSize="28sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dailyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/toggle"
+        android:layout_marginTop="45dp"
+        android:visibility="gone"
+        android:weightSum="100"
+        >
+
+    <LinearLayout
+        android:id="@+id/dailyOne"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="20">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dailyTimeOne"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="22sp"
+            />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            />
+
+        <ImageView
+            android:id="@+id/dailyIconOne"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+
+            />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dayTimeOne"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dailyTwo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="20">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dailyTimeTwo"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            />
+
+        <ImageView
+            android:id="@+id/dailyIconTwo"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+
+            />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dayTimeTwo"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dailyThree"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="20">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dailyTimeThree"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            />
+
+        <ImageView
+            android:id="@+id/dailyIconThree"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+
+            />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dayTimeThree"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dailyFour"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="20">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dailyTimeFour"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            />
+
+        <ImageView
+            android:id="@+id/dailyIconFour"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+
+            />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dayTimeFour"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dailyFive"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="20">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dailyTimeFive"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
+
+        <View
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            />
+
+        <ImageView
+            android:id="@+id/dailyIconFive"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+
+            />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/dayTimeFive"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
